@@ -247,6 +247,13 @@ def main():
         print(f"[ERROR] Not a directory: {target}")
         sys.exit(1)
 
+    # Safeguard: prevent sorting the script's own directory
+    script_dir = Path(__file__).resolve().parent
+    if target == script_dir:
+        print("[ERROR] You are trying to organize the folder that contains organizer.py itself.")
+        print("        Run it on a different folder e.g: python organizer.py ~/Downloads")
+        sys.exit(1)
+
     # Load config
     config_path = Path(args.config).resolve()
     config = load_config(config_path)
