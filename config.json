@@ -1,0 +1,95 @@
+{
+  "categories": {
+    "Images": [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".gif",
+      ".bmp",
+      ".svg",
+      ".webp",
+      ".ico",
+      ".tiff"
+    ],
+    "Videos": [
+      ".mp4",
+      ".mkv",
+      ".avi",
+      ".mov",
+      ".wmv",
+      ".flv",
+      ".webm"
+    ],
+    "Audio": [
+      ".mp3",
+      ".wav",
+      ".flac",
+      ".aac",
+      ".ogg",
+      ".m4a"
+    ],
+    "Documents": [
+      ".pdf",
+      ".doc",
+      ".docx",
+      ".xls",
+      ".xlsx",
+      ".ppt",
+      ".pptx",
+      ".odt",
+      ".txt",
+      ".rtf"
+    ],
+    "Code": [
+      ".py",
+      ".js",
+      ".ts",
+      ".html",
+      ".css",
+      ".c",
+      ".cpp",
+      ".h",
+      ".java",
+      ".go",
+      ".rs",
+      ".sh",
+      ".json",
+      ".xml",
+      ".yaml",
+      ".yml",
+      ".md"
+    ],
+    "Archives": [
+      ".zip",
+      ".tar",
+      ".gz",
+      ".rar",
+      ".7z",
+      ".bz2",
+      ".xz"
+    ],
+    "Data": [
+      ".csv",
+      ".tsv",
+      ".sql",
+      ".db",
+      ".sqlite"
+    ],
+    "Executables": [
+      ".exe",
+      ".msi",
+      ".apk",
+      ".deb",
+      ".rpm",
+      ".dmg"
+    ],
+    "Misc": []
+  },
+  "ignore": [
+    ".DS_Store",
+    "Thumbs.db",
+    "desktop.ini"
+  ],
+  "misc_folder": "Misc",
+  "log_file": "organizer.log"
+}
