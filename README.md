@@ -1,7 +1,7 @@
 # 🗂️ Smart File Organizer
 
-**A Python CLI tool that automatically sorts files into categorized subfolders.**  
-Supports one-time sorting and real-time watch mode. Fully configurable via JSON.
+**A Python tool that automatically sorts your messy folders into neat categories.**  
+Drop it on your Downloads, Desktop, or any folder — it handles the rest.
 
 > By [Parth Korgaonkar](https://github.com/Drusus03)
 
@@ -14,215 +14,287 @@ Supports one-time sorting and real-time watch mode. Fully configurable via JSON.
 - **Collision handling** — renames duplicates automatically (`file_1.jpg`, `file_2.jpg`, ...)
 - **Timestamped logs** — every move is logged to `organizer.log` inside the target folder
 - **Fully configurable** — customize categories and extensions via `config.json`
-- **Cross-platform** — works on Windows, macOS, Linux, and Android (Termux)
+- **Cross-platform** — works on Windows, macOS, Linux and Android (Termux)
 
 ---
 
-## 📦 Installation
+## 📦 Installation Guide
 
-### Prerequisites
-- Python 3.8 or higher
-- pip (Python package manager)
+> **Complete beginner?** Follow every step for your device below. Don't skip anything.
 
 ---
 
 ### 🪟 Windows
 
-1. **Install Python**  
-   Download from [python.org](https://www.python.org/downloads/)  
-   ✅ During install, check **"Add Python to PATH"**
+#### Step 1 — Install Python
 
-2. **Verify installation**
-   ```cmd
-   python --version
-   pip --version
-   ```
+1. Go to [python.org/downloads](https://www.python.org/downloads/)
+2. Click the big yellow **Download Python** button
+3. Run the installer
+4. ⚠️ **IMPORTANT:** On the first screen, check the box that says **"Add Python to PATH"** before clicking Install
+5. Click **Install Now** and wait for it to finish
 
-3. **Download the project**  
-   Click **Code → Download ZIP** on this page, then extract it.  
-   Or clone via Git:
-   ```cmd
-   git clone https://github.com/Drusus03/smart-file-organizer.git
-   cd smart-file-organizer
-   ```
+**Verify it worked** — open Command Prompt (press `Win + R`, type `cmd`, hit Enter) and type:
+```
+python --version
+```
+You should see something like `Python 3.12.3`. If you see an error, repeat Step 1.
 
-4. **Install dependencies**
-   ```cmd
-   pip install -r requirements.txt
-   ```
+#### Step 2 — Install Git
+
+1. Go to [git-scm.com/download/win](https://git-scm.com/download/win)
+2. Download and run the installer
+3. Keep clicking **Next** with default settings — no changes needed
+4. Click **Install**
+
+**Verify it worked:**
+```
+git --version
+```
+
+#### Step 3 — Download this project
+
+Open Command Prompt and run:
+```cmd
+git clone https://github.com/Drusus03/smart-file-organizer.git
+cd smart-file-organizer
+```
+
+#### Step 4 — Install dependencies
+
+```cmd
+pip install -r requirements.txt
+```
+
+#### Step 5 — Generate config and run
+
+```cmd
+python organizer.py --generate-config
+python organizer.py C:\Users\YourName\Downloads
+```
+> Replace `YourName` with your actual Windows username.
 
 ---
 
 ### 🍎 macOS
 
-1. **Install Python** (macOS may have Python 2 by default)
-   ```bash
-   brew install python
-   ```
-   > Don't have Homebrew? Install it from [brew.sh](https://brew.sh)
+#### Step 1 — Install Homebrew (package manager)
 
-2. **Clone the project**
-   ```bash
-   git clone https://github.com/Drusus03/smart-file-organizer.git
-   cd smart-file-organizer
-   ```
+Open **Terminal** (press `Cmd + Space`, type `terminal`, hit Enter) and paste:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+This may take a few minutes. Follow any on-screen instructions.
 
-3. **Install dependencies**
-   ```bash
-   pip3 install -r requirements.txt
-   ```
+#### Step 2 — Install Python and Git
+
+```bash
+brew install python git
+```
+
+**Verify:**
+```bash
+python3 --version
+git --version
+```
+
+#### Step 3 — Download this project
+
+```bash
+git clone https://github.com/Drusus03/smart-file-organizer.git
+cd smart-file-organizer
+```
+
+#### Step 4 — Install dependencies
+
+```bash
+pip3 install -r requirements.txt
+```
+
+#### Step 5 — Generate config and run
+
+```bash
+python3 organizer.py --generate-config
+python3 organizer.py ~/Downloads
+```
 
 ---
 
-### 🐧 Linux
+### 🐧 Linux (Ubuntu/Debian)
 
-1. **Install Python and pip**
-   ```bash
-   sudo apt update
-   sudo apt install python3 python3-pip   # Debian/Ubuntu
-   ```
+#### Step 1 — Install Python and Git
 
-2. **Clone the project**
-   ```bash
-   git clone https://github.com/Drusus03/smart-file-organizer.git
-   cd smart-file-organizer
-   ```
+Open Terminal and run:
+```bash
+sudo apt update
+sudo apt install python3 python3-pip git -y
+```
 
-3. **Install dependencies**
-   ```bash
-   pip3 install -r requirements.txt
-   ```
+#### Step 2 — Download this project
+
+```bash
+git clone https://github.com/Drusus03/smart-file-organizer.git
+cd smart-file-organizer
+```
+
+#### Step 3 — Install dependencies
+
+```bash
+pip3 install -r requirements.txt
+```
+
+#### Step 4 — Generate config and run
+
+```bash
+python3 organizer.py --generate-config
+python3 organizer.py ~/Downloads
+```
 
 ---
 
 ### 🤖 Android (Termux)
 
-1. **Install Termux** from [F-Droid](https://f-droid.org/packages/com.termux/)  
-   *(Avoid Play Store version — it's outdated)*
+> iOS is not supported — Apple restricts file system access for third-party apps.
 
-2. **Setup Termux**
-   ```bash
-   pkg update && pkg upgrade
-   pkg install python git
-   termux-setup-storage
-   ```
+#### Step 1 — Install Termux
 
-3. **Clone the project**
-   ```bash
-   git clone https://github.com/Drusus03/smart-file-organizer.git
-   cd smart-file-organizer
-   ```
+- Download Termux from [F-Droid](https://f-droid.org/packages/com.termux/)
+- ⚠️ Do **NOT** use the Play Store version — it's outdated and broken
 
-4. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+#### Step 2 — Setup Termux
 
-> **Note:** iOS is not supported. Python cannot run natively on iOS without jailbreak or special apps, and file system access is heavily restricted.
+Open Termux and run these one by one:
+```bash
+pkg update && pkg upgrade
+```
+Press `Y` when asked. Then:
+```bash
+pkg install python git
+```
+Then give Termux access to your phone storage:
+```bash
+termux-setup-storage
+```
+A permission popup will appear — tap **Allow**.
 
----
+#### Step 3 — Download this project
 
-## 🚀 Usage
+```bash
+git clone https://github.com/Drusus03/smart-file-organizer.git
+cd smart-file-organizer
+```
 
-### Step 1 — Generate your config (first time only)
+#### Step 4 — Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Step 5 — Generate config and run
+
 ```bash
 python organizer.py --generate-config
-```
-This creates a `config.json` in the current directory with all default settings.
-
----
-
-### Step 2 — One-time sort
-
-Sort a specific folder:
-```bash
-python organizer.py /path/to/your/folder
-```
-
-**Examples:**
-
-| Platform | Command |
-|----------|---------|
-| Windows | `python organizer.py C:\Users\YourName\Downloads` |
-| macOS/Linux | `python organizer.py ~/Downloads` |
-| Android (Termux) | `python organizer.py /sdcard/Download` |
-
-Sort the **current directory:**
-```bash
-python organizer.py .
+python organizer.py /sdcard/Download
 ```
 
 ---
 
-### Step 3 — Watch mode (real-time auto-sort)
+## 🚀 How to Use
 
+### Sort a folder once
+```bash
+# Windows
+python organizer.py C:\Users\YourName\Downloads
+
+# macOS / Linux
+python3 organizer.py ~/Downloads
+
+# Android (Termux)
+python organizer.py /sdcard/Download
+```
+
+### Watch mode — auto-sort new files in real time
 ```bash
 python organizer.py ~/Downloads --watch
 ```
+New files dropped into the folder get sorted instantly. Stop with `Ctrl + C`.
 
-- Sorts existing files first, then monitors for new ones
-- Any file dropped into the folder gets sorted instantly
-- Stop with `Ctrl + C`
+### Sort your Desktop
+```bash
+# Windows
+python organizer.py C:\Users\YourName\Desktop
 
----
+# macOS
+python3 organizer.py ~/Desktop
+```
 
-### Step 4 — Use a custom config
-
+### Use a custom config file
 ```bash
 python organizer.py ~/Downloads --config my_config.json
 ```
 
 ---
 
-## ⚙️ Customizing Categories
-
-Edit `config.json` to define your own folders and file types:
-
-```json
-{
-  "categories": {
-    "Images":     [".jpg", ".jpeg", ".png", ".gif", ".webp"],
-    "Videos":     [".mp4", ".mkv", ".avi"],
-    "Audio":      [".mp3", ".wav", ".flac"],
-    "Documents":  [".pdf", ".docx", ".txt"],
-    "Code":       [".py", ".js", ".c", ".cpp", ".html"],
-    "Archives":   [".zip", ".tar", ".gz", ".rar"],
-    "Data":       [".csv", ".sql", ".db"],
-    "MyFolder":   [".kicad", ".sch", ".gerber"]
-  },
-  "ignore": [".DS_Store", "Thumbs.db", "desktop.ini"],
-  "misc_folder": "Misc",
-  "log_file": "organizer.log"
-}
-```
-
-- Add a new key under `"categories"` for a custom folder
-- Files with unknown extensions go to `Misc` automatically
-
----
-
-## 🗂️ Default Folder Structure
+## 🗂️ Default Categories
 
 After running, your messy folder becomes:
 
 ```
 Downloads/
-├── Images/
-│   ├── photo1.jpg
-│   └── wallpaper.png
-├── Videos/
-│   └── tutorial.mp4
-├── Documents/
-│   ├── resume.pdf
-│   └── notes.txt
-├── Code/
-│   ├── script.py
-│   └── index.html
-├── Archives/
-│   └── backup.zip
-├── Misc/
-│   └── unknownfile.xyz
-└── organizer.log
+├── Images/        → .jpg .jpeg .png .gif .svg .webp
+├── Videos/        → .mp4 .mkv .avi .mov .wmv
+├── Audio/         → .mp3 .wav .flac .aac .ogg
+├── Documents/     → .pdf .docx .xlsx .txt .pptx
+├── Code/          → .py .js .c .cpp .html .sh
+├── Archives/      → .zip .tar .gz .rar .7z
+├── Data/          → .csv .sql .db .sqlite
+├── Executables/   → .exe .apk .deb .dmg
+├── Misc/          → everything else
+└── organizer.log  → history of all moves
+```
+
+---
+
+## ⚙️ Custom Categories
+
+Want your own folder names? Run:
+```bash
+python organizer.py --generate-config
+```
+
+Then open `config.json` and edit it:
+```json
+{
+  "categories": {
+    "Images":    [".jpg", ".png", ".jpeg"],
+    "APKs":      [".apk"],
+    "Canva":     [".svg", ".ai"],
+    "MyProject": [".kicad", ".sch"]
+  },
+  "ignore": [".DS_Store", "Thumbs.db"],
+  "misc_folder": "Misc",
+  "log_file": "organizer.log"
+}
+```
+
+Save the file and run the organizer again — files will now go into your custom folders.
+
+---
+
+## ⚠️ Common Mistakes
+
+**❌ Running it inside the project folder**
+```bash
+cd ~/smart-file-organizer
+python organizer.py        # WRONG — tries to sort its own files!
+python organizer.py .      # WRONG — same problem
+```
+The script detects this automatically and shows an error.
+
+**✅ Always point it at a different target folder**
+```bash
+python organizer.py ~/Downloads
+python organizer.py /sdcard/Download
 ```
 
 ---
@@ -231,22 +303,12 @@ Downloads/
 
 ```
 [2026-05-14 10:23:01] INFO — Target folder: /home/parth/Downloads
-[2026-05-14 10:23:01] INFO — Moved: resume.pdf        →  Documents/resume.pdf
-[2026-05-14 10:23:01] INFO — Moved: wallpaper.png     →  Images/wallpaper.png
-[2026-05-14 10:23:01] INFO — Moved: backup.zip        →  Archives/backup.zip
-[2026-05-14 10:23:01] INFO — Moved: tutorial.mp4      →  Videos/tutorial.mp4
-[2026-05-14 10:23:01] INFO — Done — 4 file(s) moved, 0 skipped.
-```
-
----
-
-## ⚡ Quick Reference
-
-```
-python organizer.py <folder>                  → Sort folder once
-python organizer.py <folder> --watch          → Real-time watch mode
-python organizer.py --generate-config         → Create config.json
-python organizer.py <folder> --config <file>  → Use custom config
+[2026-05-14 10:23:01] INFO — Moved: resume.pdf      →  Documents/resume.pdf
+[2026-05-14 10:23:01] INFO — Moved: wallpaper.png   →  Images/wallpaper.png
+[2026-05-14 10:23:01] INFO — Moved: backup.zip      →  Archives/backup.zip
+[2026-05-14 10:23:01] INFO — Moved: song.mp3        →  Audio/song.mp3
+[2026-05-14 10:23:01] INFO — Moved: app.apk         →  Executables/app.apk
+[2026-05-14 10:23:01] INFO — Done — 5 file(s) moved, 0 skipped.
 ```
 
 ---
