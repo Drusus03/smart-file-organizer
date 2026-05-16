@@ -158,8 +158,15 @@ python3 organizer.py ~/Downloads
 
 #### Step 1 — Install Termux
 
+**Option A — Via F-Droid** (recommended)
 - Download Termux from [F-Droid](https://f-droid.org/packages/com.termux/)
 - ⚠️ Do **NOT** use the Play Store version — it's outdated and broken
+
+**Option B — Direct APK from GitHub** (no F-Droid needed)
+- Go to [github.com/termux/termux-app/releases](https://github.com/termux/termux-app/releases)
+- Tap the latest release → download `termux-app_apt-android-7-github-debug_universal.apk`
+- Open the downloaded APK and tap **Install**
+- If prompted, enable **"Install from unknown sources"** in your phone settings
 
 #### Step 2 — Setup Termux
 
