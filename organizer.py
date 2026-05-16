@@ -22,7 +22,7 @@ try:
     from watchdog.observers import Observer
     from watchdog.events import FileSystemEventHandler
     WATCHDOG_AVAILABLE = True
-except ImportError:
+except Exception:
     WATCHDOG_AVAILABLE = False
     class FileSystemEventHandler:
         pass
