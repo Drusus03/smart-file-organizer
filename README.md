@@ -179,7 +179,7 @@ Users often face installation failures due to Android battery optimization killi
    ```
 3. Do **NOT** close or minimize Termux during `apt` or `pip` installs
 4. Never run multiple `apt` / `pkg` commands at the same time
-5. Use a **stable internet connection** (5G Internet / Wi-Fi preferred)
+5. Use a **stable internet connection** (Fast / 5G Internet / Wi-Fi preferred)
 6. After finishing all installs, release the wake lock:
    ```bash
    termux-wake-unlock
