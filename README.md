@@ -164,7 +164,7 @@ python3 organizer.py ~/Downloads
 
 **Option B — Direct APK from GitHub** (no F-Droid needed)
 - Go to [github.com/termux/termux-app/releases](https://github.com/termux/termux-app/releases)
-- Tap the latest release → download `termux-app_apt-android-7-github-debug_universal.apk`
+- Tap the **Latest release** (marked with green badge, not Pre-release) → scroll to **Assets** → download `termux-app_v0.118.3+github-debug_universal.apk`
 - Open the downloaded APK and tap **Install**
 - If prompted, enable **"Install from unknown sources"** in your phone settings
 
