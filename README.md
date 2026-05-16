@@ -257,6 +257,49 @@ python3 organizer.py ~/Desktop
 python organizer.py ~/Downloads --config my_config.json
 ```
 
+### Undo the last sort
+Made a mistake? Reverse everything from the last sort session:
+```bash
+python organizer.py ~/Downloads --undo
+```
+All files are moved back to their original location. Empty category folders are removed automatically.
+> Only the **last session** is undone. Run it again to undo the session before that.
+
+### View stats
+See how many files are in each category folder without sorting:
+```bash
+python organizer.py ~/Downloads --stats
+```
+Output:
+```
+Stats for: /home/parth/Downloads
+
+  Archives   ###                             1 file(s)
+  Documents  ##############################  8 file(s)
+  Images     ##############                  4 file(s)
+
+  Total: 13 file(s) across 3 categories
+```
+
+### Find duplicate files
+Scan for files with identical content (even if they have different names):
+```bash
+python organizer.py ~/Downloads --duplicates
+```
+Output:
+```
+Scanning for duplicates in: /home/parth/Downloads
+
+  Found 1 duplicate group(s), 1 redundant file(s):
+
+  Group 1 (MD5: d6eb32081c82...):
+    [KEEP] Documents/notes.txt        (2.1 KB)
+    [DUPE] Documents/notes_backup.txt (2.1 KB)
+
+  Tip: Delete the [DUPE] files manually to free up space.
+```
+> Duplicates are **never deleted automatically** — you decide what to remove.
+
 ---
 
 ## 🗂️ Default Categories
