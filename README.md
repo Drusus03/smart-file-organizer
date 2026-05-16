@@ -168,6 +168,23 @@ python3 organizer.py ~/Downloads
 - Open the downloaded APK and tap **Install**
 - If prompted, enable **"Install from unknown sources"** in your phone settings
 
+#### ⚠️ Before You Start — Important Termux Tips
+
+Users often face installation failures due to Android battery optimization killing Termux in the background. Follow these to avoid issues:
+
+1. Enable **unrestricted battery / background usage** for Termux in your phone settings
+2. Before running long installs or upgrades, run:
+   ```bash
+   termux-wake-lock
+   ```
+3. Do **NOT** close or minimize Termux during `apt` or `pip` installs
+4. Never run multiple `apt` / `pkg` commands at the same time
+5. Use a **stable internet connection** (Wi-Fi preferred)
+6. After finishing all installs, release the wake lock:
+   ```bash
+   termux-wake-unlock
+   ```
+
 #### Step 2 — Setup Termux
 
 Open Termux and run these one by one:
