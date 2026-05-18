@@ -18,6 +18,25 @@ Drop it on your Downloads, Desktop, or any folder — it handles the rest.
 
 ---
 
+## 📸 Screenshots
+
+### 🤖 Android (Termux)
+
+| Sorted Downloads | Terminal Output |
+|---|---|
+| ![Android After](screenshots/android_after.png) | ![Android Terminal](screenshots/android_terminal.png) |
+
+### 🪟 Windows
+
+| Before (213 files) | After (sorted) |
+|---|---|
+| ![Windows Before](screenshots/windows_before.png) | ![Windows After](screenshots/windows_after.png) |
+
+**Terminal output:**
+![Windows Terminal](screenshots/windows_terminal.png)
+
+---
+
 ## 📦 Installation Guide
 
 > **Complete beginner?** Follow every step for your device below. Don't skip anything.
@@ -179,7 +198,7 @@ Users often face installation failures due to Android battery optimization killi
    ```
 3. Do **NOT** close or minimize Termux during `apt` or `pip` installs
 4. Never run multiple `apt` / `pkg` commands at the same time
-5. Use a **stable internet connection** (Fast / 5G Internet / Wi-Fi preferred)
+5. Use a **stable internet connection** (Wi-Fi preferred)
 6. After finishing all installs, release the wake lock:
    ```bash
    termux-wake-unlock
